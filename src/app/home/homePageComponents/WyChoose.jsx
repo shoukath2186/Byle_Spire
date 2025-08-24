@@ -7,13 +7,13 @@ function WhyChoose() {
         {
             icon: Award,
             title: "Proven Track Record",
-            description: "750+ successful projects delivered with 99% client satisfaction rate. Our portfolio speaks for our expertise and reliability.",
+            description: "35+ successful projects delivered with 99% client satisfaction rate. Our portfolio speaks for our expertise and reliability.",
             gradient: "from-purple-500 to-pink-500"
         },
         {
             icon: Users,
             title: "Expert Team",
-            description: "50+ skilled professionals including developers, designers, marketers, and project managers with years of industry experience.",
+            description: "10+ skilled professionals including developers, designers, marketers, and project managers with years of industry experience.",
             gradient: "from-blue-500 to-cyan-500"
         },
         {
