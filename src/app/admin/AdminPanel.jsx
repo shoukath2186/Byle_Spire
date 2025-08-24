@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, MessageSquare, Trash2, Mail, Phone, Calendar, Clock, CheckCircle, Star } from 'lucide-react';
 
-const AdminPanel = () => {
+const AdminPanel = ({setLogin}) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -85,6 +85,12 @@ const AdminPanel = () => {
     }
   };
 
+  const LogOurAdmin = () => {
+    localStorage.removeItem('isAdmin is login take data');
+    setLogin(false);
+    
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -100,6 +106,7 @@ const AdminPanel = () => {
             <div className="flex items-center space-x-4">
               <div className="text-white text-sm">
                 <span>Admin User</span>
+                <button onDoubleClick={LogOurAdmin} className='p-2 bg-black mx-4 rounded-md cursor-pointer'>Log out</button>
               </div>
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
                 <span className="text-sm font-medium" style={{ color: '#550065' }}>AU</span>

@@ -17,7 +17,7 @@ function AdminPage() {
   return (
     <>
     {login?(
-        <AdminPanel />
+        <AdminPanel setLogin={setLogin}/>
     ):(
         <AdminLogin setLogin={setLogin} />
     )}
