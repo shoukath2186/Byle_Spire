@@ -116,13 +116,13 @@ function Page() {
               <Star className="h-4 w-4 text-purple-400" />
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6">
+            <p className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6">
               <span className="text-white">What We</span>
               <br />
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Create
               </span>
-            </h1>
+            </p>
             
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Transform your digital presence with our comprehensive suite of services. 

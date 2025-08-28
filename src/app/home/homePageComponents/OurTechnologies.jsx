@@ -81,13 +81,13 @@ function OurTechnologies() {
                         <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-white"></div>
                     </div>
 
-                    <h1 className="text-7xl md:text-8xl font-black mb-8 text-white leading-none">
+                    <p className="text-7xl md:text-8xl font-black mb-8 text-white leading-none">
                         TECH
                         <br />
                         <span className="bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-transparent">
                             STACK
                         </span>
-                    </h1>
+                    </p>
 
                     <p className="text-white/60 text-xl max-w-3xl mx-auto leading-relaxed mb-12">
                         Mastering cutting-edge technologies to deliver exceptional digital solutions

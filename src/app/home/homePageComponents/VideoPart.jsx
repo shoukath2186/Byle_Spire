@@ -27,13 +27,13 @@ function VideoPart() {
                             #1 Digital Solutions Partner
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-black leading-tight">
+                        <p className="text-5xl md:text-7xl font-black leading-tight">
                             <span className="bg-[#9b63a6] bg-clip-text text-transparent">
                                 Digital Solutions
                             </span>
                             <br />
                             <span className="text-white">That Transform Businesses</span>
-                        </h1>
+                        </p>
 
                         <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
                             We craft innovative web applications, mobile apps, and digital marketing strategies that drive growth, engage users, and deliver measurable results for forward-thinking businesses worldwide.

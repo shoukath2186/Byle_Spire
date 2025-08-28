@@ -87,9 +87,9 @@ function Page() {
               <Star className="h-4 w-4 text-purple-600" />
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
+            <p className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
               Build Your <span className="text-black">Career</span>
-            </h1>
+            </p>
             
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10">
               Join a team of passionate innovators building the future of technology. 

@@ -121,9 +121,9 @@ function AdminLogin({ setLogin }) {
             <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#550065] to-purple-600 rounded-2xl flex items-center justify-center shadow-xl">
               <Shield className="h-10 w-10 text-white" />
             </div>
-            <h1 className="text-3xl font-black mb-2 bg-gradient-to-r from-[#550065] to-purple-600 bg-clip-text text-transparent">
+            <p className="text-3xl font-black mb-2 bg-gradient-to-r from-[#550065] to-purple-600 bg-clip-text text-transparent">
               Admin Login
-            </h1>
+            </p>
             <p className="text-gray-600">Access your admin dashboard</p>
           </div>
 

@@ -101,7 +101,7 @@ const AdminPanel = ({setLogin}) => {
               <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                 <span className="text-lg font-bold" style={{ color: '#550065' }}>bS</span>
               </div>
-              <h1 className="text-xl font-semibold text-white">biteSpire Admin Panel</h1>
+              <p className="text-xl font-semibold text-white">biteSpire Admin Panel</p>
             </div>
             <div className="flex items-center space-x-4">
               <div className="text-white text-sm">

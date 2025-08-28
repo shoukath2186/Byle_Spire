@@ -97,7 +97,7 @@ function OurProcess() {
                         <Star className="h-4 w-4 text-yellow-500" />
                     </div>
 
-                    <h1 className="text-6xl md:text-8xl font-black mb-6">
+                    <p className="text-6xl md:text-8xl font-black mb-6">
                         <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
                             Our
                         </span>
@@ -105,7 +105,7 @@ function OurProcess() {
                         <span className="bg-[#a411c1] bg-clip-text text-transparent ">
                             Process
                         </span>
-                    </h1>
+                    </p>
 
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                         A streamlined approach that transforms your ideas into exceptional digital experiences

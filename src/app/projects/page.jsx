@@ -204,11 +204,11 @@ function Page() {
               <Star className="h-4 w-4 text-purple-600" />
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-gray-900">
+            <p className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-gray-900">
               <span>Featured</span>
               <br />
               <span style={{ color: '#550065' }}>Projects</span>
-            </h1>
+            </p>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
               Discover our latest work and see how we've helped businesses transform 

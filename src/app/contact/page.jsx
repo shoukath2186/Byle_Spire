@@ -107,9 +107,9 @@ function ContactPage() {
         </div>
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#550065] via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+          <p className="text-5xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#550065] via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
             Let's Connect
-          </h1>
+          </p>
           <p className="text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed">
             Ready to bring your vision to life? We're here to make magic happen.
           </p>
