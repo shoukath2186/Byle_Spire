@@ -202,7 +202,7 @@ function Page() {
               <Sparkles className="h-5 w-5 text-purple-600" />
               <span className="text-purple-700 font-semibold">Our Portfolio</span>
               <Star className="h-4 w-4 text-purple-600" />
-            </div>
+            </div>   
             
             <p className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-gray-900">
               <span>Featured</span>
