@@ -1,8 +1,8 @@
 "use client";
 
 import React,{useEffect, useState} from 'react'
-import AdminLogin from './AdminLogin';
-import AdminPanel from './AdminPanel';
+import AdminLogin from '@/components/admin/AdminLogin';
+import AdminPanel from '@/components/admin/AdminPanel';
 
 function AdminPage() {
    const [login,setLogin]=useState(false);

@@ -1,7 +1,7 @@
 "use client";
-import HomePage from "../app/home/HomePage"
-import Header from "./commonElements/Header";
-import Footer from "./commonElements/Footer";
+import HomePage from "@/components/home/HomePage";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (

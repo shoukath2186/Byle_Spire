@@ -1,7 +1,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
-import { connectDB } from "../../dbConnection/connectDb";
-import Contact from "../../modals/Contact"; 
+import { connectDB } from "@/lib/db/connectDb";
+import Contact from "@/models/Contact";
 
 
 

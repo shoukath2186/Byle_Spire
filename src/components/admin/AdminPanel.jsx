@@ -52,7 +52,7 @@ const AdminPanel = ({setLogin}) => {
   };
 
   const markAsRead = async (message) => {
-   
+
     try {
       const result = await fetch(`/api/admin/${message._id}`, {
         method: 'PATCH',
@@ -73,7 +73,7 @@ const AdminPanel = ({setLogin}) => {
 
   const deleteMessage = async (messageId) => {
     // Remove the message locally
-    
+
     // You can add an API call here to delete from the database
     try {
       await fetch(`/api/admin/${messageId}`, {
@@ -88,7 +88,7 @@ const AdminPanel = ({setLogin}) => {
   const LogOurAdmin = () => {
     localStorage.removeItem('isAdmin is login take data');
     setLogin(false);
-    
+
   }
 
   return (
@@ -198,7 +198,7 @@ const AdminPanel = ({setLogin}) => {
                         className="flex items-center px-4 py-2 text-sm font-medium text-green-600 bg-green-100 rounded-md hover:bg-green-200 transition-colors"
                       >
                         <CheckCircle className="w-4 h-4 mr-2" />
-                        Mark as Read 
+                        Mark as Read
                       </button>
                     )}
                     <span className="text-xs text-gray-500">

@@ -11,7 +11,7 @@ function AdminLogin({ setLogin }) {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState('');
-  
+
   // Input change handler
   const handleInputChange = (e) => {
     setFormData({
@@ -69,10 +69,10 @@ function AdminLogin({ setLogin }) {
       const data = await response.json();
 
       if (response.ok) {
-        
+
         setLogin(true);
         localStorage.setItem("isAdmin is login take data", "true");
-        
+
       } else {
         if (response.status === 401) {
           setApiError('Invalid email or password. Please try again.');
@@ -88,7 +88,7 @@ function AdminLogin({ setLogin }) {
       }
     } catch (error) {
       console.error('Login error:', error);
-      
+
       if (error.name === 'NetworkError' || !navigator.onLine) {
         setApiError('Network error. Please check your internet connection.');
       } else {
@@ -204,7 +204,7 @@ function AdminLogin({ setLogin }) {
             </div>
 
             {/* Remember Me Checkbox */}
-            
+
 
             {/* Login Button */}
             <button

@@ -1,7 +1,7 @@
 import React from "react";
 import { Users, Target, Award, Code, Zap, Shield, Heart, Lightbulb, Rocket, Star } from "lucide-react";
-import Header from "../commonElements/Header";
-import Footer from "../commonElements/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import Head from "next/head";
 
 function AboutPage() {

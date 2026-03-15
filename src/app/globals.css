@@ -1,6 +1,18 @@
 @import "tailwindcss";
 
-body{
-    background-color: black;
+@theme {
+  --color-accent-100: oklch(94.6% .033 307.174);
+  --color-accent-200: oklch(90.2% .063 306.703);
+  --color-accent-300: oklch(82.7% .119 306.383);
+  --color-accent-400: oklch(71.4% .203 305.504);
+  --color-accent-500: oklch(62.7% .265 303.9);
+  --color-accent-600: oklch(55.8% .288 302.321);
+  --color-accent-700: oklch(49.6% .265 301.924);
+  --color-accent-800: oklch(43.8% .218 303.724);
 }
 
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+}

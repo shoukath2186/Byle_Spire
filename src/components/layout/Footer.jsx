@@ -2,13 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
   Instagram,
   Github,
   ArrowUp
@@ -19,6 +17,7 @@ function Footer() {
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
+    { name: "Blog", path: "/blog" },
     { name: "Career", path: "/career" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -34,10 +33,8 @@ function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/bytespire-innovations-pvt-%C2%A0ltd/about/?viewAsMember=true", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/bytes_pire/", label: "Instagram" },
     { icon: Github, href: "#", label: "GitHub" }
   ];
 
@@ -49,11 +46,11 @@ function Footer() {
     <footer className="bg-black border-t-2 border-[#550065] relative overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#550065]/5 via-transparent to-purple-500/5"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Main Footer Content */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          
+
           {/* Company Info */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center group cursor-pointer">
@@ -64,25 +61,25 @@ function Footer() {
                 ByteSpire
               </span>
             </Link>
-            
+
             <p className="text-white/70 leading-relaxed max-w-sm">
-              Empowering businesses with cutting-edge technology solutions. 
+              Empowering businesses with cutting-edge technology solutions.
               We transform ideas into digital reality with innovation and excellence.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center text-white/80 hover:text-white transition-colors duration-300 group">
                 <Mail className="h-5 w-5 mr-3 text-[#550065] group-hover:scale-110 transition-transform duration-300" />
-                <span>hello@bytespire.com</span>
+                <a href="mailto:bytespire1@gmail.com">bytespire1@gmail.com</a>
               </div>
               <div className="flex items-center text-white/80 hover:text-white transition-colors duration-300 group">
                 <Phone className="h-5 w-5 mr-3 text-[#550065] group-hover:scale-110 transition-transform duration-300" />
-                <span>+91 7777 777 777</span>
+                <a href="tel:+919207022186">+91 9207022186</a>
               </div>
               <div className="flex items-center text-white/80 hover:text-white transition-colors duration-300 group">
                 <MapPin className="h-5 w-5 mr-3 text-[#550065] group-hover:scale-110 transition-transform duration-300" />
-                <span>123 Tech Street, Digital City</span>
+                <span>Panthirangav, Kozhikode, Kerala</span>
               </div>
             </div>
           </div>
@@ -124,7 +121,7 @@ function Footer() {
           {/* Social & Newsletter */}
           <div className="space-y-6">
             <h3 className="text-white font-bold text-xl">Stay Connected</h3>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
@@ -133,6 +130,8 @@ function Footer() {
                   <Link
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 bg-[#5a585a] flex items-center justify-center rounded-lg hover:bg-[#550065] text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25 group"
                     aria-label={social.label}
                   >

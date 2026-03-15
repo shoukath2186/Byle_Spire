@@ -12,8 +12,8 @@ import {
   Star,
   Sparkles
 } from 'lucide-react';
-import Header from "../commonElements/Header";
-import Footer from "../commonElements/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 function Page() {
   const [hoveredCard, setHoveredCard] = useState(null);
