@@ -62,12 +62,12 @@ function OurPortfolio() {
       <section className="relative py-24 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center bg-[#550065]/10 text-[#550065] px-6 py-3 rounded-full font-semibold text-sm mb-6">
+            <div className="inline-flex items-center bg-[#8e2157]/10 text-[#8e2157] px-6 py-3 rounded-full font-light text-sm mb-6">
               <Eye className="h-4 w-4 mr-2" />
               Our Portfolio
             </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Success Stories & <span className="text-[#550065]">Case Studies</span>
+            <h2 className="text-4xl md:text-5xl font-light mb-6">
+              Success Stories & <span className="text-[#8e2157]">Case Studies</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Discover how we've helped businesses across industries achieve their digital transformation goals with measurable results.
@@ -78,17 +78,17 @@ function OurPortfolio() {
             {portfolio.map((project, index) => (
               <div key={index} className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-[1.02]">
                 <div className="relative overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-[#550065]/20 to-purple-500/20 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-[#550065] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-2xl">{project.title.charAt(0)}</span>
+                  <div className="aspect-video bg-gradient-to-br from-[#8e2157]/20 to-purple-500/20 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-[#8e2157] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-light text-2xl">{project.title.charAt(0)}</span>
                     </div>
                   </div>
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-[#550065]">
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-light text-[#8e2157]">
                     {project.category}
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">{project.title}</h3>
+                  <h3 className="text-xl font-light mb-3 text-gray-900">{project.title}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
 
                   <div className="flex flex-wrap gap-1 mb-4">
@@ -100,8 +100,8 @@ function OurPortfolio() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="text-sm text-[#550065] font-semibold">{project.results}</div>
-                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-[#550065] group-hover:translate-x-1 transition-all duration-300" />
+                    <div className="text-sm text-[#8e2157] font-light">{project.results}</div>
+                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-[#8e2157] group-hover:translate-x-1 transition-all duration-300" />
                   </div>
                 </div>
               </div>
@@ -109,7 +109,7 @@ function OurPortfolio() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/projects" className="inline-flex items-center text-[#550065] hover:text-purple-600 font-bold text-lg transition-colors duration-300 group">
+            <Link href="/projects" className="inline-flex items-center text-[#8e2157] hover:text-purple-600 font-light text-lg transition-colors duration-300 group">
               View All Projects & Case Studies
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>

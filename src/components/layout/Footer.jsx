@@ -43,9 +43,9 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t-2 border-[#550065] relative overflow-hidden">
+    <footer className="bg-black border-t-2 border-[#8e2157] relative overflow-hidden">
       {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#550065]/5 via-transparent to-purple-500/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#8e2157]/5 via-transparent to-purple-500/5"></div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Main Footer Content */}
@@ -57,7 +57,7 @@ function Footer() {
               <div className="w-12 h-12 bg-[#5a585a] flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all duration-300">
                 <img src="/logo.png" alt="" />
               </div>
-              <span className="ml-3 text-white font-black text-2xl tracking-tight">
+              <span className="ml-3 text-white font-light text-2xl tracking-tight">
                 ByteSpire
               </span>
             </Link>
@@ -70,15 +70,15 @@ function Footer() {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center text-white/80 hover:text-white transition-colors duration-300 group">
-                <Mail className="h-5 w-5 mr-3 text-[#550065] group-hover:scale-110 transition-transform duration-300" />
+                <Mail className="h-5 w-5 mr-3 text-[#8e2157] group-hover:scale-110 transition-transform duration-300" />
                 <a href="mailto:bytespire1@gmail.com">bytespire1@gmail.com</a>
               </div>
               <div className="flex items-center text-white/80 hover:text-white transition-colors duration-300 group">
-                <Phone className="h-5 w-5 mr-3 text-[#550065] group-hover:scale-110 transition-transform duration-300" />
+                <Phone className="h-5 w-5 mr-3 text-[#8e2157] group-hover:scale-110 transition-transform duration-300" />
                 <a href="tel:+919207022186">+91 9207022186</a>
               </div>
               <div className="flex items-center text-white/80 hover:text-white transition-colors duration-300 group">
-                <MapPin className="h-5 w-5 mr-3 text-[#550065] group-hover:scale-110 transition-transform duration-300" />
+                <MapPin className="h-5 w-5 mr-3 text-[#8e2157] group-hover:scale-110 transition-transform duration-300" />
                 <span>Panthirangav, Kozhikode, Kerala</span>
               </div>
             </div>
@@ -86,16 +86,16 @@ function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h3 className="text-white font-bold text-xl">Quick Links</h3>
+            <h3 className="text-white font-light text-xl">Quick Links</h3>
             <div className="space-y-3">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.path}
-                  className="block text-white/80  font-semibold transition-all duration-300 transform hover:translate-x-2 hover:text-purple-300 relative group"
+                  className="block text-white/80  font-light transition-all duration-300 transform hover:translate-x-2 hover:text-purple-300 relative group"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#550065] rounded-full transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8e2157] rounded-full transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -103,16 +103,16 @@ function Footer() {
 
           {/* Services */}
           <div className="space-y-6">
-            <h3 className="text-white font-bold text-xl">Services</h3>
+            <h3 className="text-white font-light text-xl">Services</h3>
             <div className="space-y-3">
               {services.map((service) => (
                 <Link
                   key={service}
                   href="/services"
-                  className="block text-white/80  font-semibold transition-all duration-300 transform hover:translate-x-2 hover:text-purple-300 relative group"
+                  className="block text-white/80  font-light transition-all duration-300 transform hover:translate-x-2 hover:text-purple-300 relative group"
                 >
                   {service}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#550065] rounded-full transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8e2157] rounded-full transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -120,7 +120,7 @@ function Footer() {
 
           {/* Social & Newsletter */}
           <div className="space-y-6">
-            <h3 className="text-white font-bold text-xl">Stay Connected</h3>
+            <h3 className="text-white font-light text-xl">Stay Connected</h3>
 
             {/* Social Links */}
             <div className="flex space-x-4">
@@ -132,7 +132,7 @@ function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-[#5a585a] flex items-center justify-center rounded-lg hover:bg-[#550065] text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25 group"
+                    className="w-10 h-10 bg-[#5a585a] flex items-center justify-center rounded-lg hover:bg-[#8e2157] text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25 group"
                     aria-label={social.label}
                   >
                     <Icon className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
@@ -148,9 +148,9 @@ function Footer() {
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 px-4 py-2 bg-white/10 border border-[#550065]/30 rounded-l-lg text-white placeholder-white/50 focus:outline-none focus:border-[#550065] transition-colors duration-300"
+                  className="flex-1 px-4 py-2 bg-white/10 border border-[#8e2157]/30 rounded-l-lg text-white placeholder-white/50 focus:outline-none focus:border-[#8e2157] transition-colors duration-300"
                 />
-                <button className="px-4 py-2 bg-[#550065] text-white rounded-r-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-105">
+                <button className="px-4 py-2 bg-[#8e2157] text-white rounded-r-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-105">
                   <Mail className="h-5 w-5" />
                 </button>
               </div>
@@ -159,7 +159,7 @@ function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#550065]/30 py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-[#8e2157]/30 py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-white/70 text-center md:text-left">
             <p>&copy; {new Date().getFullYear()} ByteSpire. All rights reserved.</p>
             <div className="flex space-x-6 mt-2">
@@ -178,7 +178,7 @@ function Footer() {
           {/* Scroll to Top Button */}
           <button
             onClick={scrollToTop}
-            className="w-12 h-12 bg-[#550065] text-white rounded-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25 flex items-center justify-center group"
+            className="w-12 h-12 bg-[#8e2157] text-white rounded-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25 flex items-center justify-center group"
             aria-label="Scroll to top"
           >
             <ArrowUp className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />

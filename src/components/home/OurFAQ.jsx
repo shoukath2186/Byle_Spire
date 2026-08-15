@@ -9,70 +9,62 @@ function OurFAQ() {
 
   const faqs = [
     {
-      question: 'How long does a web development project take?',
+      question: 'What services does ByteSpire provide?',
       answer:
-        'It depends on the scope. A landing page or simple website takes 2–3 weeks. A custom web application or MERN stack project typically takes 6–12 weeks. After our initial call, I provide a clear timeline in the project proposal.',
+        'We offer end-to-end digital solutions across four main pillars: Technology & Development (custom web and mobile apps), Digital Marketing & SEO, Experience Design (UI/UX), and Corporate Branding.',
     },
     {
-      question: 'Do you work with startups and small businesses?',
+      question: 'How long does a typical project take?',
       answer:
-        'Absolutely. Many of my best projects have been MVPs and early-stage startup platforms. I understand the need to move fast, stay lean, and build something that can scale. Startup web development is a core part of what I do at Bytespire.',
+        'Timelines vary based on the project scope. A standard corporate website or branding package takes 3–6 weeks, while complex custom applications or comprehensive marketing campaigns can take 8–16 weeks. We always provide a detailed roadmap before starting.',
     },
     {
-      question: 'What is your pricing for freelance web development?',
+      question: 'Do you work with startups and enterprise clients?',
       answer:
-        'Pricing is project-based with a fixed quote. This means no hourly billing surprises. Rates depend on project complexity, timeline, and technology requirements. Get in touch for a free consultation and quote.',
+        'Absolutely. We scale our services to fit businesses of all sizes. For startups, we focus on rapid MVP development and lean marketing. For enterprise clients, we deliver robust, scalable architectures and advanced data-driven campaigns.',
     },
     {
-      question: 'Do you provide support after the website or app goes live?',
+      question: 'What makes ByteSpire different from other agencies?',
       answer:
-        'Yes. Every project includes 30 days of post-launch support to handle bugs, questions, and minor adjustments. Extended maintenance packages are also available if you need ongoing support.',
+        'We believe in transparent communication, dedicated support, and building custom solutions that drive measurable business growth. You work directly with our experts without layers of account managers, ensuring your vision is executed flawlessly.',
     },
     {
-      question: 'Can you work with my existing codebase or team?',
+      question: 'Do you provide post-launch support and maintenance?',
       answer:
-        'Yes. I can join an ongoing project, review and improve existing code, or collaborate with your in-house developers. Just share the details and we can figure out the best way to work together.',
+        'Yes. Every project comes with a standard 30-day support period. Beyond that, we offer flexible, ongoing maintenance retainers for continuous optimization, SEO management, and new feature updates.',
     },
     {
-      question: 'Do you sign NDAs and protect client data?',
+      question: 'How do you handle project pricing?',
       answer:
-        'Yes. I sign NDAs before any project discussion and follow best practices for data security. Your idea, code, and business information are always kept confidential.',
-    },
-    {
-      question: 'What is the MERN stack and why is it a good choice?',
-      answer:
-        'MERN stands for MongoDB, Express, React, and Node.js — four powerful JavaScript technologies that work together to build full stack web applications. It is fast, cost-effective (one language across front and back end), and highly scalable, making it ideal for startups and modern web products.',
+        'For development and design projects, we provide fixed-price quotes based on a detailed scope of work—meaning no hourly billing surprises. For ongoing marketing or maintenance, we offer predictable monthly retainers tailored to your goals.',
     },
   ];
 
   return (
-    <section className="bg-black py-20 md:py-28 border-t border-white/[0.07]">
+    <section className="bg-white py-10 md:py-15 border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-6">
 
         {/* Section Header */}
-        <div className="mb-14">
-          <p className="text-white/30 text-xs font-medium uppercase tracking-[0.2em] mb-3">
-            FAQ
-          </p>
-          <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+        <div className="mb-14 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-4">
             Frequently Asked Questions
           </h2>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="divide-y divide-white/[0.07]">
+        <div className="divide-y divide-gray-100">
           {faqs.map((faq, i) => (
             <div key={i}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full py-5 flex items-start justify-between gap-6 text-left"
               >
-                <span className={`font-medium text-sm leading-snug ${open === i ? 'text-white' : 'text-white/60'}`}>
+                <span className={`font-medium text-base md:text-lg leading-snug ${open === i ? 'text-gray-900' : 'text-gray-600'}`}>
                   {faq.question}
                 </span>
                 <span
                   className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 transition-colors duration-200 ${
-                    open === i ? 'bg-accent-600 text-white' : 'bg-white/10 text-white/40'
+                    open === i ? 'bg-[#8e2157] text-white' : 'bg-gray-100 text-gray-400'
                   }`}
                 >
                   {open === i
@@ -83,7 +75,7 @@ function OurFAQ() {
               </button>
 
               {open === i && (
-                <div className="pb-5 text-white/40 text-sm leading-relaxed">
+                <div className="pb-5 text-gray-500 text-base md:text-lg font-light leading-relaxed">
                   {faq.answer}
                 </div>
               )}
@@ -92,11 +84,11 @@ function OurFAQ() {
         </div>
 
         {/* Bottom Link */}
-        <div className="mt-12 pt-8 border-t border-white/[0.07]">
-          <p className="text-white/30 text-xs mb-3">Still have questions?</p>
+        <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col items-center text-center">
+          <p className="text-gray-400 text-xs font-light mb-3">Still have questions?</p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white font-medium text-sm transition-colors duration-200 group"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-[#8e2157] font-medium text-sm transition-colors duration-200 group"
           >
             Contact me directly
             <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />

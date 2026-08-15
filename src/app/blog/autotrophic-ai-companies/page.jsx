@@ -30,7 +30,7 @@ export default function BlogPost() {
               }}
             />
             <div className="absolute inset-0 flex items-center justify-center select-none">
-              <span className="text-white/[0.03] font-black leading-none"
+              <span className="text-white/[0.03] font-light leading-none"
                 style={{ fontSize: 'clamp(120px, 20vw, 240px)' }}>
                 AI
               </span>
@@ -57,7 +57,7 @@ export default function BlogPost() {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-white leading-tight mb-6">
               Autotrophic AI Companies: The Rise of Self-Improving Systems
             </h1>
 
@@ -173,7 +173,7 @@ export default function BlogPost() {
                   },
                 ].map((co) => (
                   <div key={co.name} className="border-l-2 border-gray-100 pl-5">
-                    <p className="text-gray-900 font-semibold text-sm mb-1">{co.name}</p>
+                    <p className="text-gray-900 font-light text-sm mb-1">{co.name}</p>
                     <p className="text-gray-500 text-sm leading-relaxed">{co.desc}</p>
                   </div>
                 ))}
@@ -206,7 +206,7 @@ export default function BlogPost() {
                   },
                 ].map((item) => (
                   <div key={item.title} className="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                    <p className="text-gray-900 font-semibold text-sm mb-2">{item.title}</p>
+                    <p className="text-gray-900 font-light text-sm mb-2">{item.title}</p>
                     <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
@@ -241,7 +241,7 @@ export default function BlogPost() {
                   <div key={risk.title} className="flex gap-4">
                     <div className="w-1 flex-shrink-0 bg-gray-200 rounded-full mt-1" />
                     <div>
-                      <p className="text-gray-900 font-semibold text-sm mb-1">{risk.title}</p>
+                      <p className="text-gray-900 font-light text-sm mb-1">{risk.title}</p>
                       <p className="text-gray-500 text-sm leading-relaxed">{risk.desc}</p>
                     </div>
                   </div>
@@ -279,12 +279,12 @@ export default function BlogPost() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
               <div>
                 <p className="text-gray-400 text-xs mb-1">Published by</p>
-                <p className="text-gray-900 font-semibold text-sm">Bytespire</p>
+                <p className="text-gray-900 font-light text-sm">Bytespire</p>
                 <p className="text-gray-400 text-xs">Freelance MERN Stack Developer</p>
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent-600 text-white font-semibold text-sm rounded-lg hover:bg-accent-700 transition-colors duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent-600 text-white font-light text-sm rounded-lg hover:bg-accent-700 transition-colors duration-200"
               >
                 Work With Me
               </Link>
@@ -315,7 +315,7 @@ export default function BlogPost() {
 function Section({ title, children }) {
   return (
     <section className="mb-12">
-      <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-5 leading-snug">
+      <h2 className="text-xl md:text-2xl font-light text-gray-900 mb-5 leading-snug">
         {title}
       </h2>
       <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
@@ -328,7 +328,7 @@ function Section({ title, children }) {
 function SubSection({ title, children }) {
   return (
     <div className="mb-5">
-      <h3 className="text-sm font-bold text-gray-900 mb-2">{title}</h3>
+      <h3 className="text-sm font-light text-gray-900 mb-2">{title}</h3>
       <p className="text-gray-500 text-sm leading-relaxed">{children}</p>
     </div>
   );

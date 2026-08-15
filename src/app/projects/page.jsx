@@ -165,7 +165,7 @@ function Page() {
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #550065 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, #8e2157 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }}></div>
       </div>
@@ -185,7 +185,7 @@ function Page() {
           >
             <div 
               className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: '#550065' }}
+              style={{ backgroundColor: '#8e2157' }}
             ></div>
           </div>
         ))}
@@ -200,14 +200,14 @@ function Page() {
           }`}>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-purple-200 bg-purple-50 mb-6">
               <Sparkles className="h-5 w-5 text-purple-600" />
-              <span className="text-purple-700 font-semibold">Our Portfolio</span>
+              <span className="text-purple-700 font-light">Our Portfolio</span>
               <Star className="h-4 w-4 text-purple-600" />
             </div>   
             
-            <p className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-gray-900">
+            <p className="text-5xl sm:text-6xl lg:text-7xl font-light mb-6 text-gray-900">
               <span>Featured</span>
               <br />
-              <span style={{ color: '#550065' }}>Projects</span>
+              <span style={{ color: '#8e2157' }}>Projects</span>
             </p>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
@@ -223,13 +223,13 @@ function Page() {
                   <button
                     key={category.id}
                     onClick={() => setActiveFilter(category.id)}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                    className={`flex items-center gap-2 px-6 py-3 rounded-full font-light transition-all duration-300 ${
                       activeFilter === category.id
                         ? 'bg-purple-600 text-white shadow-lg scale-105'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
                     style={{
-                      backgroundColor: activeFilter === category.id ? '#550065' : undefined
+                      backgroundColor: activeFilter === category.id ? '#8e2157' : undefined
                     }}
                   >
                     <Icon className="h-4 w-4" />
@@ -256,7 +256,7 @@ function Page() {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 {project.featured && (
-                  <div className="absolute top-4 left-4 z-10 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute top-4 left-4 z-10 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-light">
                     <Star className="h-3 w-3 inline mr-1" />
                     Featured
                   </div>
@@ -278,7 +278,7 @@ function Page() {
                 <div className="p-6">
                   {/* Project Meta */}
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${project.color} text-white`}>
+                    <span className={`px-3 py-1 rounded-full text-xs font-light bg-gradient-to-r ${project.color} text-white`}>
                       {project.status}
                     </span>
                     <div className="flex items-center gap-3 text-sm text-gray-500">
@@ -301,7 +301,7 @@ function Page() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                  <h3 className="text-xl font-light text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">
@@ -351,9 +351,9 @@ function Page() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button 
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-light text-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
               style={{ 
-                backgroundColor: '#550065',
+                backgroundColor: '#8e2157',
                 color: 'white'
               }}
             >
@@ -376,7 +376,7 @@ function Page() {
               return (
                 <div key={index} className="text-center p-6 bg-gray-50 rounded-2xl hover:bg-purple-50 transition-colors duration-300">
                   <Icon className="h-8 w-8 mx-auto mb-3 text-purple-600" />
-                  <div className="text-3xl font-black text-gray-900 mb-2">{stat.value}</div>
+                  <div className="text-3xl font-light text-gray-900 mb-2">{stat.value}</div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
                 </div>
               );

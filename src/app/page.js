@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
     <Header/>
-    <div className="mt-[80px]">
+    <div className="mt-0">
      
       <HomePage />
       

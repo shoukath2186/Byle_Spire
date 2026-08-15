@@ -1,268 +1,249 @@
 "use client";
-import React, { useState } from "react";
-import { Mail, Phone, MapPin, CheckCircle, Loader2, ArrowRight } from "lucide-react";
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const [error, setError] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError({});
-  };
-
-  const validateForm = () => {
-    let errors = {};
-    if (!formData.name.trim()) errors.name = "Name is required";
-    else if (formData.name.length < 3) errors.name = "Name must be at least 3 characters";
-    if (!formData.email.trim()) errors.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = "Enter a valid email address";
-    if (!formData.phone.trim()) errors.phone = "Phone number is required";
-    else if (!/^[0-9]{10}$/.test(formData.phone)) errors.phone = "Enter a valid 10-digit phone number";
-    if (!formData.message.trim()) errors.message = "Message is required";
-    else if (formData.message.length < 10) errors.message = "Message must be at least 10 characters";
-    setError(errors);
-    return Object.keys(errors).length === 0;
-  };
+  const [errors, setErrors] = useState({});
+  const [generalError, setGeneralError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      setLoading(true);
-      try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-        if (res.ok) {
-          setIsSubmitted(true);
-          setFormData({ name: "", email: "", phone: "", message: "" });
-          setError({});
-          setTimeout(() => setIsSubmitted(false), 30000);
+    setIsSubmitting(true);
+    setErrors({});
+    setGeneralError(null);
+
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      service: e.target.service.value,
+      message: e.target.message.value,
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        e.target.reset();
+      } else {
+        const errData = await response.json();
+        if (errData.fieldErrors) {
+          setErrors(errData.fieldErrors);
+        } else {
+          setGeneralError(errData.error || "Failed to send message. Please try again.");
         }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
       }
+    } catch (error) {
+      console.error(error);
+      setGeneralError("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 9207022186",
-      href: "tel:+919207022186",
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "bytespire1@gmail.com",
-      href: "mailto:bytespire1@gmail.com",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Panthirangav, Kozhikode, Kerala",
-      href: null,
-    },
-  ];
-
   return (
-    <>
+    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       <Header />
 
-      <main className="mt-[80px] bg-white min-h-screen">
-
-        {/* Page Header — black strip */}
-        <section className="bg-black px-6 py-16 md:py-20">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-white/30 text-xs font-medium uppercase tracking-[0.2em] mb-4">
-              Contact
-            </p>
-            <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4">
-              Let's Work Together
+      <main className="flex-grow">
+        
+        {/* Page Header */}
+        <section className="bg-black py-20 md:py-28 text-center px-6 relative overflow-hidden">
+          <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#8e2157]/20 via-black to-black opacity-80" />
+          
+          <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-light uppercase tracking-widest text-pink-200 bg-[#8e2157]/40 border border-[#8e2157]/60 mb-6 backdrop-blur-sm">
+              Get In Touch
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-4 drop-shadow-lg">
+              Let's Build Something <br className="hidden md:block"/> Extraordinary
             </h1>
-            <p className="text-white/50 text-sm max-w-md leading-relaxed">
-              Have a project in mind? Tell me about it. I'll get back to you within 24 hours.
+            <p className="text-white/70 text-base md:text-lg font-light leading-relaxed max-w-2xl">
+              Whether you have a fully formed project or just an idea, our team is ready to help you bring it to life.
             </p>
           </div>
         </section>
 
-        {/* Main Content — two columns */}
-        <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
-          <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
-
-            {/* Left — Contact Info */}
-            <div>
-              <h2 className="text-base font-bold text-gray-900 mb-8">Contact Details</h2>
-
-              <div className="space-y-6 mb-12">
-                {contactInfo.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-                        <Icon className="h-4 w-4 text-gray-500" />
-                      </div>
-                      <div>
-                        <p className="text-gray-400 text-xs mb-0.5">{item.label}</p>
-                        {item.href ? (
-                          <a
-                            href={item.href}
-                            className="text-gray-900 text-sm font-medium hover:text-accent-600 transition-colors duration-200"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <p className="text-gray-900 text-sm font-medium">{item.value}</p>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Availability note */}
-              <div className="border-t border-gray-100 pt-8">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-green-400" />
-                  <span className="text-xs font-medium text-gray-600">Available for projects</span>
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Typically respond within 24 hours. For urgent matters, call directly.
+        {/* Contact Content */}
+        <section className="py-16 md:py-24 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+              
+              {/* Left Side: Contact Information */}
+              <div className="w-full lg:w-2/5 flex flex-col">
+                <h2 className="text-3xl font-light text-gray-900 mb-8">
+                  Contact Information
+                </h2>
+                <p className="text-gray-500 font-light leading-relaxed mb-10">
+                  Fill out the form and our team will get back to you within 24 hours. We're looking forward to learning more about your business.
                 </p>
-              </div>
-            </div>
 
-            {/* Right — Contact Form */}
-            <div>
-              <h2 className="text-base font-bold text-gray-900 mb-8">Send a Message</h2>
-
-              {isSubmitted ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mb-4">
-                    <CheckCircle className="h-6 w-6 text-green-500" />
+                <div className="space-y-8 flex-grow">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#8e2157]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-[#8e2157]" />
+                    </div>
+                    <div>
+                      <h4 className="text-gray-900 font-medium mb-1">Email Us</h4>
+                      <p className="text-gray-500 font-light text-sm">hello@bytespire.com</p>
+                      <p className="text-gray-500 font-light text-sm">support@bytespire.com</p>
+                    </div>
                   </div>
-                  <h3 className="text-gray-900 font-bold text-lg mb-2">Message Sent</h3>
-                  <p className="text-gray-400 text-sm">I'll get back to you within 24 hours.</p>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#8e2157]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-[#8e2157]" />
+                    </div>
+                    <div>
+                      <h4 className="text-gray-900 font-medium mb-1">Call Us</h4>
+                      <p className="text-gray-500 font-light text-sm">+1 (555) 123-4567</p>
+                      <p className="text-gray-500 font-light text-sm">Mon - Fri, 9am - 6pm EST</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#8e2157]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-[#8e2157]" />
+                    </div>
+                    <div>
+                      <h4 className="text-gray-900 font-medium mb-1">Our Office</h4>
+                      <p className="text-gray-500 font-light text-sm leading-relaxed">
+                        123 Innovation Drive<br/>
+                        Tech District, Floor 4<br/>
+                        New York, NY 10001
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+              </div>
 
-                  {/* Name & Email */}
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Your Name"
-                        className={`w-full px-4 py-3 bg-gray-50 border rounded-lg text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400 focus:bg-white transition-colors duration-200 ${
-                          error.name ? "border-red-300 bg-red-50" : "border-gray-200"
-                        }`}
-                      />
-                      {error.name && <p className="mt-1.5 text-red-500 text-xs">{error.name}</p>}
+              {/* Right Side: Contact Form */}
+              <div className="w-full lg:w-3/5">
+                <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm">
+                  <h3 className="text-2xl font-light text-gray-900 mb-8">Send a Message</h3>
+                  
+                  {isSubmitted ? (
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center flex flex-col items-center">
+                      <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                        <Send className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-lg font-medium text-gray-900 mb-2">Message Sent Successfully!</h4>
+                      <p className="text-gray-500 font-light text-sm">
+                        Thank you for reaching out. One of our experts will get back to you shortly.
+                      </p>
+                      <button 
+                        onClick={() => {
+                          setIsSubmitted(false);
+                          setErrors({});
+                          setGeneralError(null);
+                        }}
+                        className="mt-6 text-[#8e2157] text-sm font-medium hover:underline"
+                      >
+                        Send another message
+                      </button>
                     </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {generalError && (
+                        <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm font-medium flex items-start gap-3">
+                          <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span>{generalError}</span>
+                        </div>
+                      )}
+                      
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
+                          <input 
+                            name="name"
+                            type="text" 
+                            className={`w-full bg-white border ${errors.name ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
+                            placeholder="John Doe"
+                          />
+                          {errors.name && <p className="text-red-500 text-xs mt-1.5">{errors.name}</p>}
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
+                          <input 
+                            name="email"
+                            type="text" 
+                            className={`w-full bg-white border ${errors.email ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
+                            placeholder="john@example.com"
+                          />
+                          {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email}</p>}
+                        </div>
+                      </div>
 
-                    <div>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="Your Email"
-                        className={`w-full px-4 py-3 bg-gray-50 border rounded-lg text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400 focus:bg-white transition-colors duration-200 ${
-                          error.email ? "border-red-300 bg-red-50" : "border-gray-200"
-                        }`}
-                      />
-                      {error.email && <p className="mt-1.5 text-red-500 text-xs">{error.email}</p>}
-                    </div>
-                  </div>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
+                          <input 
+                            name="phone"
+                            type="tel"
+                            className={`w-full bg-white border ${errors.phone ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
+                            placeholder="+1 (555) 123-4567"
+                          />
+                          {errors.phone && <p className="text-red-500 text-xs mt-1.5">{errors.phone}</p>}
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Service Required <span className="text-red-500">*</span></label>
+                          <select 
+                            name="service"
+                            className={`w-full bg-white border ${errors.service ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
+                          >
+                            <option value="">Select a service...</option>
+                            <option value="Technology & App Development">Technology & App Development</option>
+                            <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
+                            <option value="Experience Design (UI/UX)">Experience Design (UI/UX)</option>
+                            <option value="Branding & Identity">Branding & Identity</option>
+                            <option value="Other / General Inquiry">Other / General Inquiry</option>
+                          </select>
+                          {errors.service && <p className="text-red-500 text-xs mt-1.5">{errors.service}</p>}
+                        </div>
+                      </div>
 
-                  {/* Phone */}
-                  <div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="Phone Number"
-                      className={`w-full px-4 py-3 bg-gray-50 border rounded-lg text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400 focus:bg-white transition-colors duration-200 ${
-                        error.phone ? "border-red-300 bg-red-50" : "border-gray-200"
-                      }`}
-                    />
-                    {error.phone && <p className="mt-1.5 text-red-500 text-xs">{error.phone}</p>}
-                  </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
+                        <textarea 
+                          name="message"
+                          rows="4"
+                          className={`w-full bg-white border ${errors.message ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all resize-none`}
+                          placeholder="Tell us about your project..."
+                        ></textarea>
+                        {errors.message && <p className="text-red-500 text-xs mt-1.5">{errors.message}</p>}
+                      </div>
 
-                  {/* Message */}
-                  <div>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell me about your project..."
-                      rows={6}
-                      className={`w-full px-4 py-3 bg-gray-50 border rounded-lg text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400 focus:bg-white transition-colors duration-200 resize-none ${
-                        error.message ? "border-red-300 bg-red-50" : "border-gray-200"
-                      }`}
-                    />
-                    {error.message && <p className="mt-1.5 text-red-500 text-xs">{error.message}</p>}
-                  </div>
+                      <button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className="w-full inline-flex items-center justify-center gap-2 bg-[#8e2157] text-white font-medium px-8 py-4 rounded-xl hover:bg-[#6b1842] transition-all duration-300 shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                      </button>
+                    </form>
+                  )}
+                </div>
+              </div>
 
-                  {/* Submit */}
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-accent-600 text-white font-semibold text-sm rounded-lg hover:bg-accent-700 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Sending…
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <ArrowRight className="h-4 w-4" />
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
             </div>
-
           </div>
-        </section>
-
-        {/* Map — minimal */}
-        <section className="border-t border-gray-100">
-          <iframe
-            className="w-full h-64 md:h-80"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.217572424494!2d75.7804!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65bfa8d097e7d%3A0x4b5bfa7d6d4f80bb!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1692456789012"
-            loading="lazy"
-            title="ByteSpire Location — Panthirangav, Kozhikode"
-            style={{ display: "block" }}
-          />
         </section>
 
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

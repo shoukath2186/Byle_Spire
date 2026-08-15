@@ -18,7 +18,7 @@ function OurImpact() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-3xl font-black text-gray-900 mb-1 tabular-nums">
+              <div className="text-3xl font-light text-gray-900 mb-1 tabular-nums">
                 {stat.number}
               </div>
               <div className="text-gray-400 text-xs font-medium uppercase tracking-widest">

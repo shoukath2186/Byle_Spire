@@ -29,7 +29,7 @@ function VideoPart() {
           </p>
 
           {/* H1 */}
-          <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-5">
+          <h1 className="text-4xl md:text-5xl font-light text-white leading-tight mb-5">
             Modern Web Applications<br />Built to Scale Your Business
           </h1>
 
@@ -43,14 +43,14 @@ function VideoPart() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent-600 text-white font-semibold text-sm rounded-lg hover:bg-accent-700 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent-600 text-white font-light text-sm rounded-lg hover:bg-accent-700 transition-colors duration-200"
             >
               Start Your Project
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold text-sm rounded-lg border border-white/20 hover:bg-white/15 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-light text-sm rounded-lg border border-white/20 hover:bg-white/15 transition-colors duration-200"
             >
               View My Work
             </Link>

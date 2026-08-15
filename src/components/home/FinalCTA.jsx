@@ -1,60 +1,58 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 function FinalCTA() {
   const trustSignals = [
-    'No obligation — free initial consultation',
-    'Fixed-price quotes — no hidden fees',
-    '35+ projects delivered successfully',
-    'Response within 24 hours',
+    'Free Consultation',
+    'Custom Agency Solutions',
+    'Rapid Response Time'
   ];
 
   return (
-    <section className="bg-white py-20 md:py-28 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative w-full py-10 md:py-15 bg-black overflow-hidden border-t border-gray-100">
+      
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-60"
+        style={{ backgroundImage: 'url("/cta_bg.png")' }}
+      />
+      
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-transparent" />
 
-        <div className="max-w-2xl">
-          {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-5">
-            Ready to Build Something Great?
+      {/* Content Container */}
+      <div className="relative z-20 max-w-7xl mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        {/* Left Side: Text */}
+        <div className="max-w-2xl text-left">
+          <h2 className="text-3xl md:text-5xl font-light text-white leading-tight mb-6 drop-shadow-md">
+            Ready to Transform Your <br className="hidden md:block"/> Digital Presence?
           </h2>
-
-          {/* Copy */}
-          <p className="text-gray-500 text-sm leading-relaxed mb-3">
-            Let's turn your idea into a fast, scalable web application. Whether you have a detailed brief
-            or just a rough concept — I can help you plan, build, and launch with confidence.
+          <p className="text-white/80 text-sm md:text-base font-light leading-relaxed mb-8 max-w-xl">
+            Whether you need a scalable web application, a data-driven marketing strategy, or a complete brand overhaul, our experts are ready to deliver. Let's turn your vision into reality.
           </p>
-          <p className="text-gray-400 text-xs mb-10">
-            Get a free 30-minute consultation. No commitment, no pressure — just a clear plan for your project.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-3 mb-10">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent-600 text-white font-semibold text-sm rounded-lg hover:bg-accent-700 transition-colors duration-200"
-            >
-              Get a Free Consultation
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 font-semibold text-sm rounded-lg hover:bg-gray-200 transition-colors duration-200"
-            >
-              See My Portfolio
-            </Link>
-          </div>
-
+          
           {/* Trust Signals */}
-          <div className="flex flex-col gap-2">
-            {trustSignals.map((signal, i) => (
-              <div key={i} className="flex items-center gap-2 text-gray-400 text-xs">
-                <Check className="h-3.5 w-3.5 flex-shrink-0 text-gray-300" />
+          <div className="flex flex-wrap gap-4 md:gap-6">
+            {trustSignals.map((signal, idx) => (
+              <div key={idx} className="flex items-center gap-2 text-white/70 text-sm font-light">
+                <CheckCircle2 className="w-4 h-4 text-[#8e2157]" />
                 {signal}
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Right Side: CTA Button */}
+        <div className="flex-shrink-0">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-3 bg-[#8e2157] text-white font-light px-8 py-4 rounded-full text-lg hover:bg-[#6b1842] transition-all duration-300 shadow-[0_8px_30px_rgba(142,33,87,0.3)] hover:shadow-[0_12px_40px_rgba(142,33,87,0.5)] group"
+          >
+            Start Your Project
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
       </div>

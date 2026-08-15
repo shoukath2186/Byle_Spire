@@ -34,7 +34,7 @@ export default function BlogPage() {
             <p className="text-white/30 text-xs font-medium uppercase tracking-[0.2em] mb-4">
               Blog
             </p>
-            <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-light text-white leading-tight mb-4">
               Insights & Articles
             </h1>
             <p className="text-white/50 text-sm max-w-md leading-relaxed">
@@ -69,7 +69,7 @@ export default function BlogPage() {
                     </span>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center select-none">
-                    <span className="text-white/[0.04] text-[96px] font-black leading-none">AI</span>
+                    <span className="text-white/[0.04] text-[96px] font-light leading-none">AI</span>
                   </div>
                 </div>
 
@@ -85,13 +85,13 @@ export default function BlogPage() {
                       {post.readTime}
                     </span>
                   </div>
-                  <h2 className="text-sm font-bold text-gray-900 leading-snug mb-3 group-hover:text-accent-700 transition-colors duration-200">
+                  <h2 className="text-sm font-light text-gray-900 leading-snug mb-3 group-hover:text-accent-700 transition-colors duration-200">
                     {post.title}
                   </h2>
                   <p className="text-xs text-gray-500 leading-relaxed flex-grow mb-5">
                     {post.description}
                   </p>
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-900 group-hover:gap-2.5 transition-all duration-200">
+                  <div className="flex items-center gap-1.5 text-xs font-light text-gray-900 group-hover:gap-2.5 transition-all duration-200">
                     Read More
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>

@@ -1,21 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata = {
-
-
   title: "ByteSpire Innovations Pvt. Ltd | Digital Solutions & IT Services",
   description:
     "ByteSpire Innovations Pvt. Ltd is a product and service-based IT company offering web development, mobile app development, and digital solutions. We empower businesses with cutting-edge technology and innovative software solutions.",
@@ -44,7 +29,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://bytespire.in/logo.png", // replace with your actual logo path
+        url: "https://bytespire.in/logo.png",
         width: 800,
         height: 600,
         alt: "ByteSpire Innovations Pvt. Ltd Logo",
@@ -58,22 +43,16 @@ export const metadata = {
       "Empowering businesses with web development, mobile apps, and digital solutions.",
     images: ["https://bytespire.in/logo.png"],
   },
-
-
   icons: {
-    icon: "/logo.svg",  // ✅ correct way
+    icon: "/logo.svg",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-
+      <body className="antialiased">
         <main className="min-h-screen">{children}</main>
-
       </body>
     </html>
   );

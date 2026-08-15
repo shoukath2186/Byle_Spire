@@ -87,7 +87,7 @@ function Page() {
               <Star className="h-4 w-4 text-purple-600" />
             </div>
             
-            <p className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
+            <p className="text-4xl sm:text-5xl lg:text-6xl font-light mb-6">
               Build Your <span className="text-black">Career</span>
             </p>
             
@@ -105,7 +105,7 @@ function Page() {
                 { label: 'Growth Rate', value: '150%' }
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-2xl font-bold text-purple-600 mb-1">{stat.value}</div>
+                  <div className="text-2xl font-light text-purple-600 mb-1">{stat.value}</div>
                   <div className="text-sm text-gray-500">{stat.label}</div>
                 </div>
               ))}
@@ -118,7 +118,7 @@ function Page() {
               <button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                className={`flex items-center gap-2 px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                className={`flex items-center gap-2 px-6 py-2 rounded-full font-light transition-all duration-300 ${
                   activeTab === category.id
                     ? 'bg-black text-white shadow-md'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -142,7 +142,7 @@ function Page() {
           {/* Company Benefits Section */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-3xl font-light mb-4">
                 Why Join Our Team?
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -159,7 +159,7 @@ function Page() {
                     className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all"
                   >
                     <Icon className="h-8 w-8 text-purple-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                    <h3 className="text-lg font-light mb-2">{benefit.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
                   </div>
                 );
@@ -169,7 +169,7 @@ function Page() {
 
           {/* CTA Section */}
           <div className="text-center">
-            {/* <button className="px-8 py-4 bg-black text-white font-bold rounded-xl shadow-lg  transition">
+            {/* <button className="px-8 py-4 bg-black text-white font-light rounded-xl shadow-lg  transition">
               View Open Roles
             </button> */}
           </div>

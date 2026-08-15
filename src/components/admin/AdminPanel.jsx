@@ -94,14 +94,14 @@ const AdminPanel = ({setLogin}) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="border-b border-gray-200" style={{ backgroundColor: '#550065' }}>
+      <header className="border-b border-gray-200" style={{ backgroundColor: '#8e2157' }}>
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-lg font-bold" style={{ color: '#550065' }}>bS</span>
+                <span className="text-lg font-light" style={{ color: '#8e2157' }}>bS</span>
               </div>
-              <p className="text-xl font-semibold text-white">biteSpire Admin Panel</p>
+              <p className="text-xl font-light text-white">biteSpire Admin Panel</p>
             </div>
             <div className="flex items-center space-x-4">
               <div className="text-white text-sm">
@@ -109,7 +109,7 @@ const AdminPanel = ({setLogin}) => {
                 <button onDoubleClick={LogOurAdmin} className='p-2 bg-black mx-4 rounded-md cursor-pointer'>Log out</button>
               </div>
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium" style={{ color: '#550065' }}>AU</span>
+                <span className="text-sm font-medium" style={{ color: '#8e2157' }}>AU</span>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ const AdminPanel = ({setLogin}) => {
           <div className="flex space-x-8">
             <button
               className="py-4 px-2 border-b-2 font-medium text-sm transition-colors border-purple-700 text-purple-700"
-              style={{ borderColor: '#550065', color: '#550065' }}
+              style={{ borderColor: '#8e2157', color: '#8e2157' }}
             >
               <MessageSquare className="w-4 h-4 inline mr-2" />
               Messages & Inquiries ({messages.length})

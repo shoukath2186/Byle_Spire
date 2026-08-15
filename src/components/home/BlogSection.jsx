@@ -16,16 +16,13 @@ const posts = [
 
 function BlogSection() {
   return (
-    <section className="bg-white py-20 md:py-28 border-t border-gray-100">
+    <section className="bg-white py-10 md:py-15 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
         <div className="flex items-end justify-between mb-14">
           <div className="max-w-xl">
-            <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em] mb-3">
-              Blog
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-4">
               Insights & Articles
             </h2>
           </div>
@@ -66,7 +63,7 @@ function BlogSection() {
                 </div>
                 {/* Large background text */}
                 <div className="absolute inset-0 flex items-center justify-center select-none">
-                  <span className="text-white/[0.04] text-[96px] font-black leading-none">AI</span>
+                  <span className="text-white/[0.04] text-[96px] font-light leading-none">AI</span>
                 </div>
               </div>
 
@@ -85,7 +82,7 @@ function BlogSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-sm font-bold text-gray-900 leading-snug mb-3 group-hover:text-accent-700 transition-colors duration-200">
+                <h3 className="text-sm font-light text-gray-900 leading-snug mb-3 group-hover:text-accent-700 transition-colors duration-200">
                   {post.title}
                 </h3>
 
@@ -95,7 +92,7 @@ function BlogSection() {
                 </p>
 
                 {/* Read More */}
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-900 group-hover:gap-2.5 transition-all duration-200">
+                <div className="flex items-center gap-1.5 text-xs font-light text-gray-900 group-hover:gap-2.5 transition-all duration-200">
                   Read More
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>

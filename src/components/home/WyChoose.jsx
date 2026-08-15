@@ -4,69 +4,52 @@ import { Check } from 'lucide-react';
 function WyChoose() {
   const points = [
     {
-      title: 'Direct Communication',
+      title: 'Expert Development Team',
       description:
-        'You speak directly with me — the developer. No project managers or middlemen. Faster decisions, fewer misunderstandings, better outcomes.',
+        'Our highly skilled developers bring years of experience across modern tech stacks. We build robust, scalable architectures that ensure your applications perform flawlessly under any load.',
     },
     {
-      title: 'Clean, Maintainable Code',
+      title: 'Transparent Communication & Custom Solutions',
       description:
-        'Every project follows industry standards — clean architecture, proper documentation, and zero unnecessary complexity.',
+        'We believe in absolute transparency. You stay informed at every stage of the project. Every solution we design is custom-tailored to solve your specific business challenges.',
     },
     {
-      title: 'On-Time Delivery',
+      title: 'Ongoing Support & On-Time Delivery',
       description:
-        '95% of my projects ship on or before the agreed deadline. I scope carefully, communicate proactively, and never overpromise.',
-    },
-    {
-      title: 'Scalable Architecture',
-      description:
-        'I design systems that grow with your business. Your codebase should be ready to handle 10x traffic tomorrow.',
-    },
-    {
-      title: 'Honest Pricing',
-      description:
-        'You get a fixed quote upfront. No hidden costs, no surprise invoices. Scope changes are discussed before anything changes.',
-    },
-    {
-      title: 'Post-Launch Support',
-      description:
-        "Your project doesn't end at launch. Post-deployment support, bug fixes, and ongoing maintenance included.",
+        'We respect your deadlines and deliver on time, every time. Beyond launch, we provide dedicated support and maintenance so you are never left entirely on your own.',
     },
   ];
 
   return (
-    <section className="bg-black py-20 md:py-28 border-t border-white/[0.07]">
+    <section className="bg-black py-10 md:py-15 border-t border-white/[0.07]">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section Header */}
-        <div className="max-w-xl mb-14">
-          <p className="text-white/30 text-xs font-medium uppercase tracking-[0.2em] mb-3">
-            Why Choose Bytespire
-          </p>
-          <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
-            Why Work With a Freelance MERN Stack Developer?
+        <div className="mb-14">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white leading-tight mb-4">
+            Why Choose Bytespire?
           </h2>
-          <p className="text-white/40 text-sm leading-relaxed">
-            When you work with Bytespire, you work directly with the developer building your product —
-            no account managers, no outsourcing, no surprises.
+          <p className="text-white/60 text-sm md:text-base font-light leading-relaxed max-w-2xl">
+            We merge cutting-edge technology with deep industry expertise to build software that accelerates your business growth.
           </p>
         </div>
 
         {/* Points Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
           {points.map((point, i) => (
             <div
               key={i}
-              className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-6"
+              className="bg-white/[0.03] border border-white/[0.07] rounded-3xl p-8 hover:bg-white/[0.05] hover:border-white/[0.15] transition-all duration-300"
             >
-              <div className="flex items-start gap-3">
-                <Check className="h-4 w-4 flex-shrink-0 mt-0.5 text-accent-500" />
+              <div className="flex flex-col items-start gap-5">
+                <div className="bg-[#8e2157]/20 p-3 border border-[#8e2157]/40 rounded-xl">
+                  <Check className="h-5 w-5 text-pink-300" />
+                </div>
                 <div>
-                  <h3 className="text-white font-semibold text-sm mb-1.5">
+                  <h3 className="text-white font-light text-xl mb-3">
                     {point.title}
                   </h3>
-                  <p className="text-white/40 text-xs leading-relaxed">
+                  <p className="text-white/50 text-sm font-light leading-relaxed">
                     {point.description}
                   </p>
                 </div>

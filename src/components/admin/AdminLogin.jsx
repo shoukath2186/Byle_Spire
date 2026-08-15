@@ -118,10 +118,10 @@ function AdminLogin({ setLogin }) {
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/50">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#550065] to-purple-600 rounded-2xl flex items-center justify-center shadow-xl">
+            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#8e2157] to-purple-600 rounded-2xl flex items-center justify-center shadow-xl">
               <Shield className="h-10 w-10 text-white" />
             </div>
-            <p className="text-3xl font-black mb-2 bg-gradient-to-r from-[#550065] to-purple-600 bg-clip-text text-transparent">
+            <p className="text-3xl font-light mb-2 bg-gradient-to-r from-[#8e2157] to-purple-600 bg-clip-text text-transparent">
               Admin Login
             </p>
             <p className="text-gray-600">Access your admin dashboard</p>
@@ -141,7 +141,7 @@ function AdminLogin({ setLogin }) {
           <div className="space-y-6">
             {/* Email Field */}
             <div className="relative">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-light text-gray-700 mb-2">
                 Email Address
               </label>
               <div className="relative">
@@ -157,7 +157,7 @@ function AdminLogin({ setLogin }) {
                   disabled={loading}
                   className={`w-full pl-12 pr-4 py-4 rounded-2xl border-2 ${
                     errors.email ? 'border-red-500' : 'border-gray-200'
-                  } focus:border-[#550065] focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 bg-white/50 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed`}
+                  } focus:border-[#8e2157] focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 bg-white/50 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed`}
                 />
               </div>
               {errors.email && (
@@ -167,7 +167,7 @@ function AdminLogin({ setLogin }) {
 
             {/* Password Field */}
             <div className="relative">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-light text-gray-700 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -183,7 +183,7 @@ function AdminLogin({ setLogin }) {
                   disabled={loading}
                   className={`w-full pl-12 pr-12 py-4 rounded-2xl border-2 ${
                     errors.password ? 'border-red-500' : 'border-gray-200'
-                  } focus:border-[#550065] focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 bg-white/50 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed`}
+                  } focus:border-[#8e2157] focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 bg-white/50 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed`}
                 />
                 <button
                   type="button"
@@ -210,7 +210,7 @@ function AdminLogin({ setLogin }) {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="group relative w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-[#550065] to-purple-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="group relative w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-[#8e2157] to-purple-600 text-white font-light text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative z-10 flex items-center gap-3">

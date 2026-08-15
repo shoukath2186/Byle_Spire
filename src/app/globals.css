@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: "Graphik", "Noto Sans", sans-serif;
   --color-accent-100: oklch(94.6% .033 307.174);
   --color-accent-200: oklch(90.2% .063 306.703);
   --color-accent-300: oklch(82.7% .119 306.383);
@@ -14,5 +15,5 @@
 body {
   background-color: #000;
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Graphik", "Noto Sans", sans-serif;
 }

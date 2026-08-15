@@ -1,7 +1,7 @@
 "use client";
 
-import VideoPart from './VideoPart';
-import OurImpact from './OurImpact';
+import HeroBanner from './HeroBanner';
+import AboutUs from './AboutUs';
 import OurService from './OurService';
 import WyChoose from './WyChoose';
 import OurProcess from './OurProcess';
@@ -14,11 +14,11 @@ import BlogSection from './BlogSection';
 function HomePage() {
   return (
     <div className="overflow-hidden">
-      {/* 1. Hero */}
-      <VideoPart />
+      {/* 1. Hero Banner with 3-image column panels & floating stats widget */}
+      <HeroBanner />
 
-      {/* 2. Trust Bar / Stats */}
-      <OurImpact />
+      {/* 2. About Us */}
+      <AboutUs />
 
       {/* 3. Services */}
       <OurService />
@@ -35,14 +35,16 @@ function HomePage() {
       {/* 7. Testimonials */}
       <OutClientsSay />
 
-      {/* 8. FAQ */}
+      {/* 8. Final CTA */}
+      <FinalCTA />
+
+      {/* 9. FAQ */}
       <OurFAQ />
 
-      {/* 9. Blog */}
-      <BlogSection />
+      {/* 10. Blog */}
+      {/* <BlogSection /> */}
 
-      {/* 10. Final CTA */}
-      <FinalCTA />
+
     </div>
   );
 }
