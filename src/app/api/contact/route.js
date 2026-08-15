@@ -6,10 +6,26 @@ export async function POST(request) {
     const body = await request.json();
     const { name, email, phone, service, message } = body;
 
-    // Validate required fields (Message is optional)
-    if (!name || !email || !phone || !service) {
+    const fieldErrors = {};
+
+    if (!name?.trim()) fieldErrors.name = "Name is required";
+    if (!email?.trim()) {
+      fieldErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      fieldErrors.email = "Please provide a valid email address";
+    }
+    if (!phone?.trim()) {
+      fieldErrors.phone = "Phone number is required";
+    } else if (!/^\+?[0-9\s\-()]+$/.test(phone)) {
+      fieldErrors.phone = "Phone number can only contain numbers.";
+    } else if (phone.replace(/[^0-9]/g, '').length < 10) {
+      fieldErrors.phone = "Phone number must contain at least 10 digits";
+    }
+    if (!service?.trim()) fieldErrors.service = "Service selection is required";
+
+    if (Object.keys(fieldErrors).length > 0) {
       return NextResponse.json(
-        { fieldErrors: { general: "Please fill in all required fields." } }, 
+        { fieldErrors },
         { status: 400 }
       );
     }
@@ -72,16 +88,16 @@ export async function POST(request) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
-      { 
-        message: "✅ Email sent successfully!", 
-        success: true 
+      {
+        message: "✅ Email sent successfully!",
+        success: true
       },
       { status: 200 }
     );
 
   } catch (error) {
     console.error("❌ Error sending email:", error);
-    
+
     // Check if it's an authentication error
     if (error.code === 'EAUTH') {
       return NextResponse.json(

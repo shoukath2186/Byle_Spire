@@ -10,6 +10,28 @@ function ContactPage() {
   const [errors, setErrors] = useState({});
   const [generalError, setGeneralError] = useState(null);
 
+  const validateForm = (data) => {
+    const newErrors = {};
+    if (!data.name.trim()) newErrors.name = "Full Name is required";
+    else if (data.name.trim().length < 2) newErrors.name = "Name must be at least 2 characters";
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!data.email.trim()) newErrors.email = "Email Address is required";
+    else if (!emailRegex.test(data.email)) newErrors.email = "Please provide a valid email address";
+
+    if (!data.phone.trim()) {
+      newErrors.phone = "Phone Number is required";
+    } else if (!/^\+?[0-9\s\-()]+$/.test(data.phone)) {
+      newErrors.phone = "Phone number can only contain numbers.";
+    } else if (data.phone.replace(/[^0-9]/g, '').length < 10) {
+      newErrors.phone = "Phone number must contain at least 10 digits";
+    }
+
+    if (!data.service) newErrors.service = "Please select a service";
+
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -23,6 +45,13 @@ function ContactPage() {
       service: e.target.service.value,
       message: e.target.message.value,
     };
+
+    const validationErrors = validateForm(formData);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch('/api/contact', {
@@ -55,17 +84,17 @@ function ContactPage() {
       <Header />
 
       <main className="flex-grow">
-        
+
         {/* Page Header */}
         <section className="bg-black py-20 md:py-28 text-center px-6 relative overflow-hidden">
           <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#8e2157]/20 via-black to-black opacity-80" />
-          
+
           <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-light uppercase tracking-widest text-pink-200 bg-[#8e2157]/40 border border-[#8e2157]/60 mb-6 backdrop-blur-sm">
               Get In Touch
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-4 drop-shadow-lg">
-              Let's Build Something <br className="hidden md:block"/> Extraordinary
+              Let's Build Something <br className="hidden md:block" /> Extraordinary
             </h1>
             <p className="text-white/70 text-base md:text-lg font-light leading-relaxed max-w-2xl">
               Whether you have a fully formed project or just an idea, our team is ready to help you bring it to life.
@@ -77,7 +106,7 @@ function ContactPage() {
         <section className="py-16 md:py-24 bg-white border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-              
+
               {/* Left Side: Contact Information */}
               <div className="w-full lg:w-2/5 flex flex-col">
                 <h2 className="text-3xl font-light text-gray-900 mb-8">
@@ -117,8 +146,8 @@ function ContactPage() {
                     <div>
                       <h4 className="text-gray-900 font-medium mb-1">Our Office</h4>
                       <p className="text-gray-500 font-light text-sm leading-relaxed">
-                        123 Innovation Drive<br/>
-                        Tech District, Floor 4<br/>
+                        123 Innovation Drive<br />
+                        Tech District, Floor 4<br />
                         New York, NY 10001
                       </p>
                     </div>
@@ -130,7 +159,7 @@ function ContactPage() {
               <div className="w-full lg:w-3/5">
                 <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm">
                   <h3 className="text-2xl font-light text-gray-900 mb-8">Send a Message</h3>
-                  
+
                   {isSubmitted ? (
                     <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center flex flex-col items-center">
                       <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
@@ -140,7 +169,7 @@ function ContactPage() {
                       <p className="text-gray-500 font-light text-sm">
                         Thank you for reaching out. One of our experts will get back to you shortly.
                       </p>
-                      <button 
+                      <button
                         onClick={() => {
                           setIsSubmitted(false);
                           setErrors({});
@@ -161,13 +190,13 @@ function ContactPage() {
                           <span>{generalError}</span>
                         </div>
                       )}
-                      
+
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
-                          <input 
+                          <input
                             name="name"
-                            type="text" 
+                            type="text"
                             className={`w-full bg-white border ${errors.name ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
                             placeholder="John Doe"
                           />
@@ -175,9 +204,9 @@ function ContactPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
-                          <input 
+                          <input
                             name="email"
-                            type="text" 
+                            type="text"
                             className={`w-full bg-white border ${errors.email ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
                             placeholder="john@example.com"
                           />
@@ -188,17 +217,20 @@ function ContactPage() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
-                          <input 
+                          <input
                             name="phone"
                             type="tel"
                             className={`w-full bg-white border ${errors.phone ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
-                            placeholder="+1 (555) 123-4567"
+                            placeholder="+15551234567"
+                            onChange={(e) => {
+                              e.target.value = e.target.value.replace(/[^0-9+]/g, "");
+                            }}
                           />
                           {errors.phone && <p className="text-red-500 text-xs mt-1.5">{errors.phone}</p>}
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">Service Required <span className="text-red-500">*</span></label>
-                          <select 
+                          <select
                             name="service"
                             className={`w-full bg-white border ${errors.service ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all`}
                           >
@@ -215,7 +247,7 @@ function ContactPage() {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
-                        <textarea 
+                        <textarea
                           name="message"
                           rows="4"
                           className={`w-full bg-white border ${errors.message ? 'border-red-400 ring-1 ring-red-400' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8e2157]/20 focus:border-[#8e2157] transition-all resize-none`}
@@ -224,8 +256,8 @@ function ContactPage() {
                         {errors.message && <p className="text-red-500 text-xs mt-1.5">{errors.message}</p>}
                       </div>
 
-                      <button 
-                        type="submit" 
+                      <button
+                        type="submit"
                         disabled={isSubmitting}
                         className="w-full inline-flex items-center justify-center gap-2 bg-[#8e2157] text-white font-medium px-8 py-4 rounded-xl hover:bg-[#6b1842] transition-all duration-300 shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
                       >
