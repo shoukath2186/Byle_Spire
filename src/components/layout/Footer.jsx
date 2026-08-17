@@ -54,8 +54,8 @@ function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center group cursor-pointer">
-              <div className="w-12 h-12 bg-[#5a585a] flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all duration-300">
-                <img src="/logo.png" alt="" />
+              <div className="flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                <img src="/log-no-bg.png" alt="ByteSpire Logo" className="w-12 h-12 object-contain" />
               </div>
               <span className="ml-3 text-white font-light text-2xl tracking-tight">
                 ByteSpire
@@ -92,10 +92,9 @@ function Footer() {
                 <Link
                   key={item.name}
                   href={item.path}
-                  className="block text-white/80  font-light transition-all duration-300 transform hover:translate-x-2 hover:text-purple-300 relative group"
+                  className="block text-white/80 font-light transition-colors duration-300 hover:text-white"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8e2157] rounded-full transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -109,10 +108,9 @@ function Footer() {
                 <Link
                   key={service}
                   href="/services"
-                  className="block text-white/80  font-light transition-all duration-300 transform hover:translate-x-2 hover:text-purple-300 relative group"
+                  className="block text-white/80 font-light transition-colors duration-300 hover:text-white"
                 >
                   {service}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8e2157] rounded-full transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>

@@ -6,6 +6,15 @@ import Footer from '@/components/layout/Footer';
 
 const posts = [
   {
+    slug: 'agentic-ai-and-enterprise-automation',
+    title: 'Agentic AI and Enterprise Automation: The Shift from Chat to Autonomous Workflows',
+    description:
+      'The best and most discussed topic for the IT sector right now is Agentic AI. Explore how artificial intelligence is shifting from simple chat tools to autonomous software agents that actively execute complex business workflows.',
+    date: 'August 15, 2026',
+    readTime: '6 min read',
+    tag: 'Enterprise AI',
+  },
+  {
     slug: 'autotrophic-ai-companies',
     title: 'Autotrophic AI Companies: The Rise of Self-Improving Systems',
     description:

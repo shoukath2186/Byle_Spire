@@ -6,7 +6,7 @@ const AboutUs = () => {
   return (
     <section className="w-full bg-gray-50 pt-32 pb-10 md:pb-15 px-6">
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-light uppercase tracking-widest text-[#8e2157] bg-[#8e2157]/10 mb-4">
+        <span className="inline-flex mt-[100px] md:mt-0 items-center gap-2 px-3 py-1 rounded-full text-xs font-light uppercase tracking-widest text-[#8e2157] bg-[#8e2157]/10 mb-4">
           About Us
         </span>
         <h2 className="text-3xl md:text-5xl font-light text-gray-900 leading-tight mb-6">

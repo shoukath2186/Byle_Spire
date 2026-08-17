@@ -11,7 +11,7 @@ function Header() {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Projects", path: "/projects" },
+    // { name: "Projects", path: "/projects" },
     { name: "Career", path: "/career" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -37,14 +37,14 @@ function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group cursor-pointer">
-            <div className="w-10 h-10 bg-[#5a585a] flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all duration-300">
-              <img src="/logo.png" alt="" />
+            <div className="flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+              <img src="/log-no-bg.png" alt="ByteSpire Logo" className="w-10 h-10 object-contain" />
             </div>
             <span
               className={`ml-3 font-medium text-2xl tracking-tight transition-colors duration-300 ${isScrolled ? "text-gray-900" : "text-white"
                 }`}
             >
-              BYTESPIRE
+              BYTE SPIRE
             </span>
           </Link>
 

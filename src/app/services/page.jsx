@@ -12,7 +12,7 @@ function ServicesPage() {
       image: '/service_tech.png',
       title: 'Technology & Application Development',
       description: 'We build robust, scalable, and high-performance web and mobile applications tailored to your unique business needs. From initial architecture to deployment, our engineering team ensures top-tier quality.',
-      features: ['Custom Web Applications (React, Next.js)', 'Cross-Platform Mobile Apps', 'API Development & Integration', 'Cloud Architecture & DevOps'],
+      features: ['Custom Web Applications', 'Cross-Platform Mobile Apps', 'API Development & Integration', 'Cloud Architecture & DevOps'],
       linkText: 'Explore technology',
       href: '/services/technology'
     },

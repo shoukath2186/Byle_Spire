@@ -15,6 +15,26 @@ const pages = [
     changefreq: 'monthly',
   },
   {
+    url: '/services/technology',
+    priority: '0.85',
+    changefreq: 'monthly',
+  },
+  {
+    url: '/services/digital-marketing',
+    priority: '0.85',
+    changefreq: 'monthly',
+  },
+  {
+    url: '/services/experience-design',
+    priority: '0.85',
+    changefreq: 'monthly',
+  },
+  {
+    url: '/services/branding',
+    priority: '0.85',
+    changefreq: 'monthly',
+  },
+  {
     url: '/contact',
     priority: '0.90',
     changefreq: 'monthly',
