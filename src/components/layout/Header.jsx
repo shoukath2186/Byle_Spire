@@ -1,8 +1,9 @@
-"use client"; // Needed because you use useState
+"use client";
+import Image from "next/image"; // Needed because you use useState
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,12 @@ function Header() {
     { name: "Contact", path: "/contact" },
   ];
 
-
+  const serviceItems = [
+    { name: "Technology & Development", path: "/services/technology" },
+    { name: "Digital Marketing & SEO", path: "/services/digital-marketing" },
+    { name: "UI/UX & Experience Design", path: "/services/experience-design" },
+    { name: "Brand Strategy & Identity", path: "/services/branding" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +44,7 @@ function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center group cursor-pointer">
             <div className="flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
-              <img src="/log-no-bg.png" alt="ByteSpire Logo" className="w-10 h-10 object-contain" />
+              <Image src="/log-no-bg.png" alt="ByteSpire Logo" width={40} height={40} className="w-10 h-10 object-contain" />
             </div>
             <span
               className={`ml-3 font-medium text-2xl tracking-tight transition-colors duration-300 ${isScrolled ? "text-gray-900" : "text-white"
@@ -51,16 +57,34 @@ function Header() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-10">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.path}
-                className={`font-light relative group transition-all duration-300 hover:scale-105 ${isScrolled ? "text-gray-700 hover:text-[#8e2157]" : "text-white/90 hover:text-white"
-                  }`}
-              >
-                {item.name}
-                <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#8e2157] rounded-full transition-all duration-300 group-hover:w-full"></span>
-                <span className="absolute inset-0 bg-gradient-to-r from-[#8e2157]/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 scale-110"></span>
-              </Link>
+              <div key={item.name} className="relative group py-6">
+                <Link
+                  href={item.path}
+                  className={`relative flex items-center font-light transition-all duration-300 hover:scale-105 ${isScrolled ? "text-gray-700 hover:text-[#8e2157]" : "text-white/90 hover:text-white"
+                    }`}
+                >
+                  {item.name}
+                  {item.name === "Services" && <ChevronDown className="ml-1 w-4 h-4" />}
+                  <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#8e2157] rounded-full transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+
+                {/* Dropdown Menu for Services */}
+                {item.name === "Services" && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div className={`w-64 rounded-xl shadow-xl overflow-hidden flex flex-col py-2 ${isScrolled ? "bg-white border border-gray-100" : "bg-black border border-white/10"}`}>
+                      {serviceItems.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.path}
+                          className={`px-5 py-3 text-sm font-light transition-colors ${isScrolled ? "text-gray-700 hover:bg-gray-50 hover:text-[#8e2157]" : "text-white/80 hover:bg-white/10 hover:text-white"}`}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
             <div className="hidden lg:flex">
               <Link
@@ -85,22 +109,43 @@ function Header() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div
-            className={`lg:hidden rounded-b-2xl border mt-2 mx-2 shadow-2xl transition-all duration-300 ${isScrolled ? "bg-white border-gray-200" : "bg-black/95 border-[#8e2157]/30"
+            className={`lg:hidden rounded-b-2xl border mt-2 mx-2 shadow-2xl transition-all duration-300 max-h-[80vh] overflow-y-auto ${isScrolled ? "bg-white border-gray-200" : "bg-black/95 border-[#8e2157]/30"
               }`}
           >
-            <div className="p-6 space-y-4">
+            <div className="p-6 space-y-2">
               {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.path}
-                  className={`block font-light py-3 px-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${isScrolled
-                    ? "text-gray-800 hover:text-[#8e2157] hover:bg-[#8e2157]/10"
-                    : "text-white hover:text-purple-300 hover:bg-[#8e2157]/20"
-                    }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                <div key={item.name} className="flex flex-col">
+                  <Link
+                    href={item.path}
+                    className={`flex justify-between items-center font-light py-3 px-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${isScrolled
+                      ? "text-gray-800 hover:text-[#8e2157] hover:bg-[#8e2157]/10"
+                      : "text-white hover:text-purple-300 hover:bg-[#8e2157]/20"
+                      }`}
+                    onClick={() => {
+                      if (item.name !== "Services") {
+                        setIsMenuOpen(false);
+                      }
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+
+                  {/* Mobile Sub-menu for Services */}
+                  {item.name === "Services" && (
+                    <div className="pl-6 pr-4 space-y-1 mt-1 mb-2">
+                      {serviceItems.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.path}
+                          className={`block py-2 px-4 rounded-lg font-light text-sm transition-colors ${isScrolled ? "text-gray-600 hover:bg-gray-50" : "text-white/70 hover:bg-white/10"}`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <Link
                 href="/contact"

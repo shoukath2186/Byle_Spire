@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { 
   Calendar, 
   Users, 
@@ -264,10 +265,11 @@ function Page() {
 
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 "
+                    fill
+                    className="object-cover transition-transform duration-500"
                   />
                   
                   {/* Overlay */}

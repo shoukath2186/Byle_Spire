@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Calculator,
   BarChart3,
@@ -58,10 +59,11 @@ function HeroBanner() {
             className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${idx === currentSlide ? "opacity-100 z-0" : "opacity-0 -z-10"
               }`}
           >
-            <img
+            <Image
               src={slide.image}
               alt={slide.alt}
-              className={`w-full h-full object-cover transition-transform duration-[6000ms] ease-out ${idx === currentSlide ? "scale-110" : "scale-100"
+              fill
+              className={`object-cover transition-transform duration-[6000ms] ease-out ${idx === currentSlide ? "scale-110" : "scale-100"
                 }`}
             />
           </div>

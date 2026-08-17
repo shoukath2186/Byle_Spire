@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, Calendar, Clock, Twitter, Linkedin, Facebook, CheckCircle2, Code2, Workflow, Zap } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -15,10 +16,11 @@ export default function BlogPost() {
         <section className="bg-black py-16 md:py-24 px-6 relative overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black z-10" />
-            <img
+            <Image
               src="/agentic_ai_cover.png"
               alt="Agentic AI Cover"
-              className="w-full h-full object-cover opacity-50"
+              fill
+              className="object-cover opacity-50"
             />
           </div>
 
@@ -43,8 +45,8 @@ export default function BlogPost() {
             </h1>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 overflow-hidden">
-                <img src="/logo.png" alt="ByteSpire" className="w-6 h-6" />
+              <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 overflow-hidden shrink-0">
+                <Image src="/logo.png" alt="ByteSpire" width={24} height={24} className="w-6 h-6 object-contain" />
               </div>
               <div>
                 <p className="text-white text-sm font-medium">ByteSpire Insights Team</p>

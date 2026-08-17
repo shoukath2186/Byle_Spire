@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Monitor, TrendingUp, PenTool, Layout } from 'lucide-react';
 
 function OurTechnologies() {
@@ -74,10 +75,11 @@ function OurTechnologies() {
           <div className="w-full lg:w-2/5 relative mt-8 lg:mt-0">
             {/* Image Container */}
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl z-10 group">
-              <img 
+              <Image 
                 src="/tech_image.png" 
                 alt="Our Technologies" 
-                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+                fill
+                className="object-cover transform group-hover:scale-105 transition-transform duration-700" 
               />
               {/* Subtle Gradient Overlay on image for blending */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#8e2157]/40 to-transparent pointer-events-none" />

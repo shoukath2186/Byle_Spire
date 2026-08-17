@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 
 function OurService() {
@@ -50,11 +51,12 @@ function OurService() {
               className="flex flex-col bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_8px_30px_rgba(142,33,87,0.12)] transition-all duration-300 group cursor-pointer"
             >
               {/* Image */}
-              <div className="h-48 w-full overflow-hidden">
-                <img
+              <div className="h-48 w-full overflow-hidden relative">
+                <Image
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
