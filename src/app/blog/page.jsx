@@ -29,20 +29,21 @@ const posts = [
 ];
 
 export const metadata = {
-  title: 'Blog — ByteSpire',
-  description: 'Insights and articles on web development, AI, and technology from ByteSpire.',
+  title: 'Blog | ByteSpire Innovations',
+  description: 'Insights and articles on web development, AI, and technology from ByteSpire Innovations.',
+  keywords: 'ByteSpire blog, AI insights, web development articles, technology trends, enterprise automation',
   openGraph: {
-    title: 'Blog — ByteSpire',
-    description: 'Insights and articles on web development, AI, and technology from ByteSpire.',
-    url: 'https://bytespire.com/blog',
-    siteName: 'ByteSpire',
+    title: 'Blog | ByteSpire Innovations',
+    description: 'Insights and articles on web development, AI, and technology from ByteSpire Innovations.',
+    url: 'https://bytespire.in/blog',
+    siteName: 'ByteSpire Innovations',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog — ByteSpire',
-    description: 'Insights and articles on web development, AI, and technology.',
+    title: 'Blog | ByteSpire Innovations',
+    description: 'Insights and articles on web development, AI, and technology from ByteSpire Innovations.',
   },
 };
 
