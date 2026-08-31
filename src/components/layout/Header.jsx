@@ -40,14 +40,14 @@ function Header() {
         }`}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-14 lg:h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center group cursor-pointer">
             <div className="flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
-              <Image src="/log-no-bg.png" alt="ByteSpire Logo" width={40} height={40} className="w-10 h-10 object-contain" />
+              <Image src="/log-no-bg.png" alt="ByteSpire Logo" width={40} height={40} className="w-8 h-8 lg:w-10 lg:h-10 object-contain" />
             </div>
             <span
-              className={`ml-3 font-medium text-2xl tracking-tight transition-colors duration-300 ${isScrolled ? "text-gray-900" : "text-white"
+              className={`ml-2 lg:ml-3 font-medium text-xl lg:text-2xl tracking-tight transition-colors duration-300 ${isScrolled ? "text-gray-900" : "text-white"
                 }`}
             >
               BYTE SPIRE

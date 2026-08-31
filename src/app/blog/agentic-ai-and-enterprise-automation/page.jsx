@@ -1,4 +1,3 @@
-"use client";
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -6,9 +5,62 @@ import { ArrowLeft, Calendar, Clock, Twitter, Linkedin, Facebook, CheckCircle2, 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
+export const metadata = {
+  title: 'Agentic AI and Enterprise Automation — ByteSpire Blog',
+  description: 'Explore how artificial intelligence is shifting from simple chat tools to autonomous software agents that actively execute complex business workflows.',
+  openGraph: {
+    title: 'Agentic AI and Enterprise Automation',
+    description: 'Explore how artificial intelligence is shifting from simple chat tools to autonomous software agents that actively execute complex business workflows.',
+    url: 'https://bytespire.com/blog/agentic-ai-and-enterprise-automation',
+    siteName: 'ByteSpire',
+    images: [
+      {
+        url: '/agentic_ai_cover.png',
+        width: 1200,
+        height: 630,
+        alt: 'Agentic AI',
+      },
+    ],
+    locale: 'en_US',
+    type: 'article',
+    publishedTime: '2026-08-15T00:00:00.000Z',
+    authors: ['ByteSpire Insights Team'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agentic AI and Enterprise Automation',
+    description: 'Explore how artificial intelligence is shifting from simple chat tools to autonomous software agents.',
+    images: ['/agentic_ai_cover.png'],
+  },
+};
+
 export default function BlogPost() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: 'Agentic AI and Enterprise Automation',
+    image: 'https://bytespire.com/agentic_ai_cover.png',
+    author: {
+      '@type': 'Organization',
+      name: 'ByteSpire',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ByteSpire',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://bytespire.com/logo.png',
+      },
+    },
+    datePublished: '2026-08-15T00:00:00.000Z',
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
 
       <main className="flex-grow ">
@@ -45,9 +97,9 @@ export default function BlogPost() {
             </h1>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 overflow-hidden shrink-0">
+              {/* <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 overflow-hidden shrink-0">
                 <Image src="/logo.png" alt="ByteSpire" width={24} height={24} className="w-6 h-6 object-contain" />
-              </div>
+              </div> */}
               <div>
                 <p className="text-white text-sm font-medium">ByteSpire Insights Team</p>
                 <p className="text-white/50 text-xs">Research & Development</p>
@@ -68,7 +120,7 @@ export default function BlogPost() {
               <button className="p-2 hover:text-[#8e2157] transition-colors"><Facebook className="w-5 h-5" /></button>
             </div>
 
-            <article className="prose prose-lg prose-gray max-w-none font-light leading-relaxed">
+            <article className="prose prose-lg prose-gray max-w-none font-light leading-relaxed text-gray-600">
               <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-10">
                 The most discussed topic in IT strategy right now is <strong>Agentic AI</strong>. We are rapidly moving past the era where AI was simply a conversational tool—a chatbot that waits for your prompt. Today, we are entering the era of autonomous software agents that actively execute complex business workflows.
               </p>
@@ -189,6 +241,19 @@ export default function BlogPost() {
 
               <p className="mb-10">
                 As an IT consulting and development agency, <strong>ByteSpire</strong> is at the forefront of this shift. We are helping businesses transition their rigid legacy automations into dynamic, AI-driven workflows that adapt to the speed of modern business.
+              </p>
+
+              <h2 className="text-3xl font-light text-gray-900 mt-16 mb-6">Security and Governance in Agentic Workflows</h2>
+              <p className="mb-6">
+                With great autonomy comes a critical need for oversight. When AI systems are given the ability to execute API calls, access databases, and send emails, security cannot be an afterthought. Governance frameworks must evolve alongside agentic capabilities.
+              </p>
+              <ul className="list-disc list-outside ml-5 mb-10 space-y-3 text-gray-600">
+                <li><strong>Human-in-the-Loop (HITL):</strong> For high-stakes actions like initiating payments or deleting records, agents should draft the action but pause execution until a human administrator clicks "Approve".</li>
+                <li><strong>Role-Based Access Control (RBAC):</strong> Agents must be authenticated via service accounts with strict, least-privilege permissions, ensuring they can only access data relevant to their specific workflow.</li>
+                <li><strong>Audit Trails:</strong> Every decision, API call, and reasoning step taken by the agent must be logged immutably so that if an error occurs, developers can trace exactly why the agent made that decision.</li>
+              </ul>
+              <p className="mb-10">
+                Building agentic AI isn't just about prompt engineering; it requires robust enterprise software engineering to ensure the systems are secure, reliable, and compliant.
               </p>
 
               <hr className="my-10 border-gray-200" />

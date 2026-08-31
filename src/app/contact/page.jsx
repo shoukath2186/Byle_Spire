@@ -123,8 +123,7 @@ function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-gray-900 font-medium mb-1">Email Us</h4>
-                      <p className="text-gray-500 font-light text-sm">hello@bytespire.com</p>
-                      <p className="text-gray-500 font-light text-sm">support@bytespire.com</p>
+                      <p className="text-gray-500 font-light text-sm">bytespire1@gmail.com</p>
                     </div>
                   </div>
 
@@ -134,12 +133,12 @@ function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-gray-900 font-medium mb-1">Call Us</h4>
-                      <p className="text-gray-500 font-light text-sm">+1 (555) 123-4567</p>
+                      <p className="text-gray-500 font-light text-sm">+91 9207022186</p>
                       <p className="text-gray-500 font-light text-sm">Mon - Fri, 9am - 6pm EST</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
+                  {/* <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-[#8e2157]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-5 h-5 text-[#8e2157]" />
                     </div>
@@ -151,7 +150,7 @@ function ContactPage() {
                         New York, NY 10001
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Image from 'next/image';
 
 const posts = [
   {
@@ -13,6 +14,7 @@ const posts = [
     date: 'August 15, 2026',
     readTime: '6 min read',
     tag: 'Enterprise AI',
+    image: '/agentic_ai_cover.png',
   },
   {
     slug: 'autotrophic-ai-companies',
@@ -22,13 +24,26 @@ const posts = [
     date: 'March 15, 2026',
     readTime: '8 min read',
     tag: 'AI & Technology',
+    image: '/autotrophic_ai_cover.jpg',
   },
 ];
 
 export const metadata = {
-  title: 'Blog — Bytespire',
-  description:
-    'Insights and articles on web development, AI, and technology from Bytespire — a freelance MERN stack development studio.',
+  title: 'Blog — ByteSpire',
+  description: 'Insights and articles on web development, AI, and technology from ByteSpire.',
+  openGraph: {
+    title: 'Blog — ByteSpire',
+    description: 'Insights and articles on web development, AI, and technology from ByteSpire.',
+    url: 'https://bytespire.com/blog',
+    siteName: 'ByteSpire',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog — ByteSpire',
+    description: 'Insights and articles on web development, AI, and technology.',
+  },
 };
 
 export default function BlogPage() {
@@ -63,22 +78,17 @@ export default function BlogPage() {
               >
                 {/* Cover */}
                 <div className="relative aspect-[16/9] bg-gray-900 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black" />
-                  <div
-                    className="absolute inset-0 opacity-[0.04]"
-                    style={{
-                      backgroundImage:
-                        'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
-                      backgroundSize: '32px 32px',
-                    }}
+                  <Image 
+                    src={post.image} 
+                    alt={post.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="px-2.5 py-1 bg-white/10 border border-white/15 text-white/70 text-xs font-medium rounded-full">
+                    <span className="px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-white/15 text-white text-xs font-medium rounded-full shadow-sm">
                       {post.tag}
                     </span>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center select-none">
-                    <span className="text-white/[0.04] text-[96px] font-light leading-none">AI</span>
                   </div>
                 </div>
 

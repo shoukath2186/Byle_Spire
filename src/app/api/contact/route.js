@@ -42,7 +42,7 @@ export async function POST(request) {
     // Setup the email data
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'shoukathot77@gmail.com', // Sending directly to your email!
+      to: 'bytespire1@gmail.com', // Sending directly to your email!
       subject: `New ByteSpire Inquiry from ${name} - ${service}`,
       text: `
         New Contact Form Submission:

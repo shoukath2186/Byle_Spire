@@ -4,37 +4,78 @@ import { ArrowLeft, Clock, Calendar, Tag } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
+import Image from 'next/image';
+
 export const metadata = {
-  title: 'Autotrophic AI Companies: The Rise of Self-Improving Systems — Bytespire Blog',
-  description:
-    'A new class of AI companies is emerging — ones that build systems capable of improving themselves. Here is what autotrophic AI means, who is building it, and why it matters for businesses in 2026.',
+  title: 'Autotrophic AI Companies: The Rise of Self-Improving Systems — ByteSpire Blog',
+  description: 'A new class of AI companies is emerging — ones that build systems capable of improving themselves.',
+  openGraph: {
+    title: 'Autotrophic AI Companies: The Rise of Self-Improving Systems',
+    description: 'A new class of AI companies is emerging — ones that build systems capable of improving themselves.',
+    url: 'https://bytespire.com/blog/autotrophic-ai-companies',
+    siteName: 'ByteSpire',
+    images: [
+      {
+        url: '/autotrophic_ai_cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Autotrophic AI',
+      },
+    ],
+    locale: 'en_US',
+    type: 'article',
+    publishedTime: '2026-03-15T00:00:00.000Z',
+    authors: ['ByteSpire Insights Team'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Autotrophic AI Companies: The Rise of Self-Improving Systems',
+    description: 'A new class of AI companies is emerging.',
+    images: ['/autotrophic_ai_cover.jpg'],
+  },
 };
 
 export default function BlogPost() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: 'Autotrophic AI Companies: The Rise of Self-Improving Systems',
+    image: 'https://bytespire.com/autotrophic_ai_cover.jpg',
+    author: {
+      '@type': 'Organization',
+      name: 'ByteSpire',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ByteSpire',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://bytespire.com/logo.png',
+      },
+    },
+    datePublished: '2026-03-15T00:00:00.000Z',
+  };
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="mt-[80px] bg-white min-h-screen">
 
         {/* Cover Section */}
         <section className="bg-black">
           {/* Cover graphic */}
-          <div className="relative h-64 md:h-80 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black" />
-            <div
-              className="absolute inset-0 opacity-[0.05]"
-              style={{
-                backgroundImage:
-                  'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
-                backgroundSize: '40px 40px',
-              }}
+          <div className="relative h-64 md:h-96 overflow-hidden">
+            <Image
+              src="/autotrophic_ai_cover.jpg"
+              alt="Autotrophic AI Cover"
+              fill
+              className="object-cover opacity-70"
+              priority
             />
-            <div className="absolute inset-0 flex items-center justify-center select-none">
-              <span className="text-white/[0.03] font-light leading-none"
-                style={{ fontSize: 'clamp(120px, 20vw, 240px)' }}>
-                AI
-              </span>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
           </div>
 
           {/* Post header */}
@@ -279,12 +320,12 @@ export default function BlogPost() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
               <div>
                 <p className="text-gray-400 text-xs mb-1">Published by</p>
-                <p className="text-gray-900 font-light text-sm">Bytespire</p>
-                <p className="text-gray-400 text-xs">Freelance MERN Stack Developer</p>
+                <p className="text-gray-900 font-light text-sm">ByteSpire</p>
+                <p className="text-gray-400 text-xs">Insights Team</p>
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent-600 text-white font-light text-sm rounded-lg hover:bg-accent-700 transition-colors duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#8e2157] text-white font-light text-sm rounded-lg hover:bg-[#6b1842] transition-colors duration-200"
               >
                 Work With Me
               </Link>
