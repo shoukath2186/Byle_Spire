@@ -40,7 +40,7 @@ function Header() {
         }`}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-14 lg:h-18">
+        <div className="flex justify-between items-center h-16 lg:h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center group cursor-pointer">
             <div className="flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
